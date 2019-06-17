@@ -29,13 +29,13 @@ describe('enhancer.js', () => {
 
             expect(enhancer.fail({ enhancement: 17, durability: 10  }).durability).toBe(0);
 
-            expect(enhancer.fail({ enhancement: 17, durability: 10  }).enhacement).toBe(16);
+            expect(enhancer.fail({ enhancement: 17, durability: 10  }).enhancement).toBe(16);
 
             expect(enhancer.fail({ enhancement: 5, durability: 10 }).durability).toBe(5);
 
             expect(enhancer.fail({ enhancement: -10, durability: 10 }).durability).toBe(5);
-            
-            expect(enhancer.fail({ enhancement: 'word' , durability: 10 }).durability).toBe(20);
+
+            expect(enhancer.fail({ enhancement: 'word' , durability: 10 }).durability).toBe(10);
         })
     })
 })
