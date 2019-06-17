@@ -17,9 +17,25 @@ describe('enhancer.js', () => {
         it('adds one to enhance if < 20', () => {
             expect(enhancer.succeed({ enhancement: 20 }).enhancement).toBe(20);
             expect(enhancer.succeed({ enhancement: 18 }).enhancement).toBe(19);
-            expect(enhancer.succeed({ enhancement: 0 }).enhancement).toBe(1);
+            expect(enhancer.succeed({ enhancement: 30 }).enhancement).toBe(20);
             expect(enhancer.succeed({ enhancement: -10 }).enhancement).toBe(-9);
+            expect(enhancer.succeed({ enhancement: 'word' }).enhancement).toBe(20);
 
+        })
+    })
+    describe('fail()', () => {
+        it('adds one to enhance if < 20', () => {
+            expect(enhancer.fail({ enhancement: 10, durability: 50 }).durability).toBe(45);
+
+            expect(enhancer.fail({ enhancement: 17, durability: 10  }).durability).toBe(0);
+
+            expect(enhancer.fail({ enhancement: 17, durability: 10  }).enhacement).toBe(16);
+
+            expect(enhancer.fail({ enhancement: 5, durability: 10 }).durability).toBe(5);
+
+            expect(enhancer.fail({ enhancement: -10, durability: 10 }).durability).toBe(5);
+            
+            expect(enhancer.fail({ enhancement: 'word' , durability: 10 }).durability).toBe(20);
         })
     })
 })
