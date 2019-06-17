@@ -9,7 +9,7 @@ describe('enhancer.js', () => {
             expect(enhancer.repair({ durability: 100 }).durability).toBe(100);
             expect(enhancer.repair({ durability: -75 }).durability).toBe(100);
             expect(enhancer.repair({ durability: 0 }).durability).toBe(100);
-            expect(enhancer.repair({ durability: 'word' }).durability).toBe(100);
+            
         })
     })
 
@@ -19,7 +19,6 @@ describe('enhancer.js', () => {
             expect(enhancer.succeed({ enhancement: 18 }).enhancement).toBe(19);
             expect(enhancer.succeed({ enhancement: 30 }).enhancement).toBe(20);
             expect(enhancer.succeed({ enhancement: -10 }).enhancement).toBe(-9);
-            expect(enhancer.succeed({ enhancement: 'word' }).enhancement).toBe(20);
 
         })
     })
@@ -35,7 +34,8 @@ describe('enhancer.js', () => {
 
             expect(enhancer.fail({ enhancement: -10, durability: 10 }).durability).toBe(5);
 
-            expect(enhancer.fail({ enhancement: 'word' , durability: 10 }).durability).toBe(10);
+           
         })
     })
+
 })
