@@ -38,4 +38,11 @@ describe('enhancer.js', () => {
         })
     })
 
+    describe('get()', () => {
+        it('gets item and add enhancement value to name if enhancement > 0', () => {
+            expect(enhancer.get({ name: 'St.Lou', enhancement: 5 }).name).toBe('[+5]St.Lou');
+            expect(enhancer.get({ name: 'St.Lou', enhancement: 0 }).name).toBe('St.Lou');
+        })
+    })
+
 })
